@@ -10,6 +10,7 @@ export default class ConnexionActions extends LightningElement {
 
   isBasic;
   error;
+  isEditPassword = false;
 
   @wire(getIsBasic, { connexionId: "$recordId" })
   wiredConnextionType({ error, data }) {
@@ -53,5 +54,19 @@ export default class ConnexionActions extends LightningElement {
       );
     }
   }
+
+
+  handleEditPassword(){
+    this.isEditPassword = true;
+  }
+  handleCancel(){
+    this.isEditPassword = false;
+  }
+
+  handleSubmit(){
+
+  }
+
+
 }
 

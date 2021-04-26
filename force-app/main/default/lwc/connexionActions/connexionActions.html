@@ -1,16 +1,27 @@
 <template>
-    <lightning-card  variant="Narrow" title="Actions" icon-name="action:user_activation">
+    <lightning-card  variant="Narrow" title="Actions" icon-name="standard:custom_component_task">
         <template if:false={isEditPassword} >
-            <div class="actions">
-                <button class="btn" onclick={handleActivation}>Enable / Disable</button>
-                <button class="btn" onclick={handleTestConnexion}>Test Connexion</button>
+            <div class="actions flex">
+                <button class="btn btn-primary-outline" onclick={handleActivation}>Enable / Disable</button>
+                <button class="btn btn-primary-outline" onclick={handleTestConnexion}>Test Connexion</button>
                 <template if:true={isBasic}>
-                    <button class="btn" onclick={handlEditPassword}>Edit Password</button>
+                    <button class="btn btn-primary-outline" onclick={handleEditPassword}>Edit Password</button>
                 </template>
             </div>
         </template>
         <template if:true={isEditPassword} >
-            <form></form>>
+                <div class="slds-m-around_medium">
+                    <h1 class="slds-text-heading_small">Edit your password</h1>
+                </div>
+                <div class="form">
+                    <lightning-input type="password" label="Previous password" value="" required></lightning-input>
+                    <lightning-input type="password" label="New password" value="" required></lightning-input>
+                    <lightning-input type="password" label="Confirm new password" value="" required></lightning-input>
+                <div class="flex">
+                    <button class="btn btn-primary-outline mr-small" onclick={handleSubmit}>Confirm</button>
+                    <button class="btn btn-primary ml-small" onclick={handleCancel}>Cancel</button>
+                </div>
+                </div> 
         </template>
     </lightning-card>
 </template>
