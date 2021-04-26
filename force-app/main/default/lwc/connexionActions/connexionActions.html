@@ -1,0 +1,16 @@
+<template>
+    <lightning-card  variant="Narrow" title="Actions" icon-name="action:user_activation">
+        <template if:false={isEditPassword} >
+            <div class="actions">
+                <button class="btn" onclick={handleActivation}>Enable / Disable</button>
+                <button class="btn" onclick={handleTestConnexion}>Test Connexion</button>
+                <template if:true={isBasic}>
+                    <button class="btn" onclick={handlEditPassword}>Edit Password</button>
+                </template>
+            </div>
+        </template>
+        <template if:true={isEditPassword} >
+            <form></form>>
+        </template>
+    </lightning-card>
+</template>

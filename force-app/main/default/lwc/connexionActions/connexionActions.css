@@ -1,0 +1,23 @@
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction : column;
+    width: 100%;
+    padding: 0 15px;
+}
+.actions .btn {
+    width: 100%;
+    color : #0070D2;
+    margin-bottom : 10px;
+    background-color: #fff;
+    border: 1px solid #0070D2;
+    border-radius : 5px;
+    transition: all 0.25s linear;
+    padding: 8px 16px;
+}
+
+.actions .btn:hover {
+    background-color : #f4f6f9;
+    border-color : #005fb2;
+}
