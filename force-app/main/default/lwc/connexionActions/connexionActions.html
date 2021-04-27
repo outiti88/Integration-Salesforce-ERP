@@ -8,18 +8,38 @@
                     <button class="btn btn-primary-outline" onclick={handleEditPassword}>Edit Password</button>
                 </template>
             </div>
+            
         </template>
         <template if:true={isEditPassword} >
+            <template if:true={displayAlert} >
+                <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                    <span class="slds-assistive-text">error</span>
+                    <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed">
+                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                    </svg>
+                    </span>
+                    <h2>{errorMessage}.</h2>
+                    <div class="slds-notify__close">
+                    <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close">
+                        <svg class="slds-button__icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    </div>
+                </div>
+            </template>
                 <div class="slds-m-around_medium">
                     <h1 class="slds-text-heading_small">Edit your password</h1>
                 </div>
                 <div class="form">
-                    <lightning-input type="password" label="Previous password" value="" required></lightning-input>
-                    <lightning-input type="password" label="New password" value="" required></lightning-input>
-                    <lightning-input type="password" label="Confirm new password" value="" required></lightning-input>
+                    <lightning-input  type="password" class="oldPassword" name="oldPassword" onchange={onHandleChange} label="Previous password" value={inputValues.oldPassword} required></lightning-input>
+                    <lightning-input  type="password" class="newPassword"  name="newPassword"  onchange={onHandleChange} label="New password" value={inputValues.newPassword} required></lightning-input>
+                    <lightning-input  type="password" class="confirmNewPassword" name="confirmNewPassword" onchange={onHandleChange} label="Confirm new password" value={inputValues.confirmNewPassword} required></lightning-input>
                 <div class="flex">
-                    <button class="btn btn-primary-outline mr-small" onclick={handleSubmit}>Confirm</button>
                     <button class="btn btn-primary ml-small" onclick={handleCancel}>Cancel</button>
+                    <button class="btn btn-primary-outline mr-small" onclick={handleSubmit} >Confirm</button>
                 </div>
                 </div> 
         </template>

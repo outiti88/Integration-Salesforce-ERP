@@ -46,4 +46,3 @@ export function reduceErrors(errors) {
         .filter((message) => !!message)
     );
   }
-  
